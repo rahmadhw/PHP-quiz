@@ -1,35 +1,34 @@
-<?php 
+<?php  
 
-
-class HitungLuas {
-
-    protected $luas = $luas;
-    protected $lebar = $lebar;
-    protected $tinggi = $tinggi;
-    protected $sisi = $sisi;
-
-    function perhitungan($p, $l) {
-        return $p * $l;
+class MenghitungLuas {
+    public function luasPersegi($sisi) {
+        /* Menghitung luas persegi. */
+        return $sisi * $sisi;
     }
 
-    function persegi(){
-        return $this->perhitungan(15, 10);
+    public function luasPersegiPanjang($panjang, $lebar) {
+        /* Menghitung luas persegi panjang. */
+        return $panjang * $lebar;
     }
 
-    function persegiPanjang(){
-        return $this->perhitungan(15,10);
-    }
-
-    function luasLingkaran() {
-        return $this->perhitungan(15, 10);
+    public function luasLingkaran($jariJari) {
+        /* Menghitung luas lingkaran. */
+        return pi() * pow($jariJari, 2);
     }
 }
 
 
-$luas = new HitungLuas;
-$persegi = $luas->persegi();
-$persegiPanjang = $luas->persegiPanjang();
-$luaslingkaran = $luas->luasLingkaran();
-echo 'Hasil luas Persegi ' . $persegi . '<br>';
-echo 'Hasil Luas Persegi Panjang: ' . $persegiPanjang . ' Cm' . '<br>';
-echo 'Hasil Luas Lingkaran: ' . $luaslingkaran ;
+// Membuat objek dari class MenghitungLuas
+$hitungLuas = new MenghitungLuas();
+
+// Menghitung luas persegi dengan sisi 4
+$luasPersegi = $hitungLuas->luasPersegi(4);
+echo "Luas persegi: " . $luasPersegi . "\n";
+
+// Menghitung luas persegi panjang dengan panjang 5 dan lebar 3
+$luasPersegiPanjang = $hitungLuas->luasPersegiPanjang(5, 3);
+echo "Luas persegi panjang: " . $luasPersegiPanjang . "\n";
+
+// Menghitung luas lingkaran dengan jari-jari 2.5
+$luasLingkaran = $hitungLuas->luasLingkaran(2.5);
+echo "Luas lingkaran: " . $luasLingkaran . "\n";
